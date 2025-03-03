@@ -104,8 +104,8 @@
         const ctx = canvas.getContext('2d');
 
         // Set canvas size
-        canvas.width = 800;
-        canvas.height = 600;
+        canvas.width = window.innerWidth;  // Change to fill the entire window width
+        canvas.height = window.innerHeight; // Change to fill the entire window height
 
         // Game state variables
         let projectiles = [];
@@ -646,6 +646,12 @@
 
         // Start with just the start screen
         drawStartScreen();
+
+        // Update the canvas size on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;  // Update width on resize
+            canvas.height = window.innerHeight; // Update height on resize
+        });
     </script>
 </body>
 </html>
